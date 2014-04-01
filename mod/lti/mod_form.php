@@ -122,6 +122,7 @@ class mod_lti_mod_form extends moodleform_mod {
         $launchoptions[LTI_LAUNCH_CONTAINER_DEFAULT] = get_string('default', 'lti');
         $launchoptions[LTI_LAUNCH_CONTAINER_EMBED] = get_string('embed', 'lti');
         $launchoptions[LTI_LAUNCH_CONTAINER_EMBED_NO_BLOCKS] = get_string('embed_no_blocks', 'lti');
+        $launchoptions[LTI_LAUNCH_CONTAINER_REPLACE_MOODLE_WINDOW] = get_string('existing_window', 'lti');
         $launchoptions[LTI_LAUNCH_CONTAINER_WINDOW] = get_string('new_window', 'lti');
 
         $mform->addElement('select', 'launchcontainer', get_string('launchinpopup', 'lti'), $launchoptions);
@@ -190,6 +191,9 @@ class mod_lti_mod_form extends moodleform_mod {
             }
         }
         */
+
+        // Add standard course module grading elements.
+        $this->standard_grading_coursemodule_elements();
 
         //-------------------------------------------------------------------------------
         // add standard elements, common to all modules

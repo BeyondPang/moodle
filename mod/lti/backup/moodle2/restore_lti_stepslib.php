@@ -56,7 +56,11 @@ class restore_lti_activity_structure_step extends restore_activity_structure_ste
     protected function define_structure() {
 
         $paths = array();
-        $paths[] = new restore_path_element('lti', '/activity/lti');
+        $lti = new restore_path_element('lti', '/activity/lti');
+        $paths[] = $lti;
+
+        // Add support for subplugin structure
+        $this->add_subplugin_structure('ltisource', $lti);
 
         // Return the paths wrapped into standard activity structure
         return $this->prepare_activity_structure($paths);
